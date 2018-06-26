@@ -20,7 +20,7 @@ import Tick from "src/components/tick";
 
 class StubComponent extends React.Component {
   render() {
-    return (<div></div>);
+    return (<div/>);
   }
 }
 describe("components/victory-gauge", () => {
@@ -64,7 +64,7 @@ describe("components/victory-gauge", () => {
     });
 
     it("should pass the animate props to the VictoryAnimation component", () => {
-      const wrapper = shallow(<VictoryGauge animate={{duration: 1987, delay: 22}}/>);
+      const wrapper = shallow(<VictoryGauge animate={{ duration: 1987, delay: 22 }}/>);
       const animation = wrapper.find(VictoryAnimation);
       expect(animation.props()).to.be.an("object");
       expect(animation.props().duration).to.equal(1987);

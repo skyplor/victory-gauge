@@ -9,6 +9,8 @@
 const chai = require("chai");
 const sinonChai = require("sinon-chai");
 const chaiEnzyme = require("chai-enzyme");
+const enzyme = require("enzyme");
+const Adapter = require("enzyme-adapter-react-16");
 
 // --------------------------------------------------------------------------
 // Chai / Sinon / Mocha configuration.
@@ -25,6 +27,8 @@ window.mocha.setup({
   ui: "bdd",
   bail: false
 });
+
+enzyme.configure({ adapter: new Adapter() });
 
 // --------------------------------------------------------------------------
 // Bootstrap

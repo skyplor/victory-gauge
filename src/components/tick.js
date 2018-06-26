@@ -1,17 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class Tick extends React.Component {
   static propTypes = {
-    angle: React.PropTypes.string,
-    events: React.PropTypes.object,
-    style: React.PropTypes.object,
-    x1: React.PropTypes.number,
-    x2: React.PropTypes.number,
-    y1: React.PropTypes.number,
-    y2: React.PropTypes.number
+    angle: PropTypes.string,
+    events: PropTypes.object,
+    style: PropTypes.object,
+    x1: PropTypes.number,
+    x2: PropTypes.number,
+    y1: PropTypes.number,
+    y2: PropTypes.number
   };
   render() {
-    const {style, angle, events, x1, x2, y1, y2} = this.props;
+    const { style, angle, events, x1, x2, y1, y2 } = this.props;
     return (
         <g {...events}>
           <line

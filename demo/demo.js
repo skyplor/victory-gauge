@@ -1,4 +1,5 @@
 /*global window:false*/
+/* eslint-disable no-magic-numbers */
 import React from "react";
 import { VictoryGauge } from "../src/index";
 import Needle from "../src/components/needle";
@@ -38,7 +39,7 @@ export default class App extends React.Component {
       endAngle: 90
     });
     window.setInterval(() => {
-      this.setState({time: new Date()});
+      this.setState({ time: new Date() });
     }, 1000);
     this.setStateInterval = window.setInterval(() => {
       this.setState({
@@ -47,8 +48,8 @@ export default class App extends React.Component {
       });
     }, 2000);
   }
-  getTransitionData() {
-    return Math.floor(Math.random() * 100);
+  componentWillUnmount() {
+    window.clearInterval(this.setStateInterval);
   }
   getData() {
     const rand = () => Math.floor(Math.random() * 100);
@@ -62,8 +63,8 @@ export default class App extends React.Component {
       { x: "≥65", y: rand() }
     ];
   }
-  componentWillUnmount() {
-    window.clearInterval(this.setStateInterval);
+  getTransitionData() {
+    return Math.floor(Math.random() * 100);
   }
   render() {
     const containerStyle = {
@@ -82,12 +83,12 @@ export default class App extends React.Component {
             animate={{
               duration: this.state.duration,
               onEnd: () => {
-                this.setState({tickValues: [0, 33, 50, 66, 100], duration: 1500});
+                this.setState({ tickValues: [0, 33, 50, 66, 100], duration: 1500 });
               }
             }}
             style={{
               parent: this.state.style.parent,
-              labels: {fontSize: 10, padding: 100}
+              labels: { fontSize: 10, padding: 100 }
             }}
             endAngle={this.state.endAngle}
             data={this.state.transitionData}
@@ -99,7 +100,7 @@ export default class App extends React.Component {
             style={{
               parent: this.state.style.parent
             }}
-            animate={{duration: this.state.duration}}
+            animate={{ duration: this.state.duration }}
             endAngle={0}
             tickValues={[0, 100]}
             segments={[50]}
@@ -110,7 +111,7 @@ export default class App extends React.Component {
           />
           <VictoryGauge
             style={{
-              parent: Object.assign({}, this.state.style.parent, {paddingRight: "3%"})
+              parent: Object.assign({}, this.state.style.parent, { paddingRight: "3%" })
             }}
             domain={[10, 66]}
             data={30}
@@ -130,7 +131,7 @@ export default class App extends React.Component {
                     tickLabels: {
                       style: Object.assign(
                         {},
-                        props.style, {fill: color}
+                        props.style, { fill: color }
                       )
                     }
                   };
@@ -140,7 +141,7 @@ export default class App extends React.Component {
                     tickLabels: {
                       style: Object.assign(
                         {},
-                        props.style, {fill: "red", fontSize: 14}
+                        props.style, { fill: "red", fontSize: 14 }
                       )
                     }
                   };
@@ -150,7 +151,7 @@ export default class App extends React.Component {
                     tickLabels: {
                       style: Object.assign(
                         {},
-                        props.style, {fill: "black", fontSize: 10}
+                        props.style, { fill: "black", fontSize: 10 }
                       )
                     }
                   };
@@ -208,7 +209,7 @@ export default class App extends React.Component {
             }}
             style={{
               parent: this.state.style.parent,
-              labels: {fontSize: 10, padding: 100}
+              labels: { fontSize: 10, padding: 100 }
             }}
             innerRadius={20}
             outerRadius={100}

@@ -32,5 +32,6 @@ coverage
 docs/build
 dist/*.map
 lib
+es
 node_modules
 npm-debug.log*

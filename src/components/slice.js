@@ -1,13 +1,14 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default class Slice extends React.Component {
   static propTypes = {
-    index: PropTypes.number,
-    slice: PropTypes.object,
-    pathFunction: PropTypes.func,
-    style: PropTypes.object,
     datum: PropTypes.object,
-    events: PropTypes.object
+    events: PropTypes.object,
+    index: PropTypes.number,
+    pathFunction: PropTypes.func,
+    slice: PropTypes.object,
+    style: PropTypes.object
   };
   renderSlice(props) {
     return (

@@ -3,48 +3,69 @@
   "version": "0.0.1",
   "description": "gauge component for React",
   "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FormidableLabs/victory-gauge.git"
+    "url": "https://github.com/skyplor/victory-gauge.git"
   },
   "author": "Mike Axtman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FormidableLabs/victory-gauge/issues"
+    "url": "https://github.com/skyplor/victory-gauge/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/victory-guage",
+  "homepage": "https://github.com/skyplor/victory-guage",
   "engineStrict": true,
   "engines": {
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "postinstall": "cd lib || builder run npm:postinstall",
+    "postinstall": "builder run npm:postinstall",
     "preversion": "builder run npm:preversion",
-    "start": "builder run hot",
+    "postversion": "builder run npm:postversion",
+    "postpublish": "builder run npm:postpublish",
+    "start": "builder run dev",
     "lint": "builder run lint",
     "test": "builder run check",
-    "version": "builder run npm:version && git add dist && git commit -m \"Commit 'dist/' for publishing\"",
-    "docs-build-static": "echo 'Static docs generation for victory-pie is not supported"
+    "version": "builder run npm:version",
+    "docs-build-static": "echo 'Static docs generation for victory-gauge is not supported"
   },
   "dependencies": {
-    "builder": "~2.9.1",
-    "builder-victory-component": "^2.1.3",
+    "builder": "4.0.0",
+    "builder-victory-component": "5.2.0",
     "d3-scale": "^0.7.2",
     "d3-shape": "^0.6.0",
     "lodash": "^4.12.0",
-    "victory-core": "^2.0.0"
+    "publishr": "^1.0.0",
+    "victory-core": "^24.0.0"
   },
   "devDependencies": {
-    "builder-victory-component-dev": "^2.1.3",
-    "chai": "^3.2.0",
-    "chai-enzyme": "0.4.1",
+    "@babel/preset-react": "7.0.0-beta.47",
+    "babel-preset-react-native": "^1.9.0",
+    "builder-victory-component-dev": "5.2.0",
+    "chai": "4.1.2",
+    "chai-enzyme": "1.0.0-beta.1",
     "ecology": "^1.2.0",
-    "enzyme": "^2.0.0",
-    "mocha": "^2.2.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "mocha": "^5.2.0",
+    "prop-types": "^15.5.8",
     "radium": "^0.16.2",
-    "react": "0.14.x",
-    "react-dom": "0.14.x",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "sinon": "^1.15.4",
     "sinon-chai": "^2.8.0"
-  }
+  },
+  "publishr": {
+    "dependencies": [
+      "^builder"
+    ],
+    "files": {
+      ".npmignore": ".npmignore.publishr"
+    },
+    "scripts": {
+      "postinstall": ""
+    }
+  },
+  "sideEffects": false
 }
